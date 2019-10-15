@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Banner from './Containers/Banner';
+import Menu from './Containers/Navigation';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    banner: [
+      {
+        title: 'Banner 1'
+      },
+      {
+        title: 'Banner 2'
+      },
+      {
+        title: 'Banner 3'
+      },
+      {
+        title: 'Banner 4'
+      }
+    ]
+  }
+
+  render() {
+    return (
+      <div className="container">
+        <Menu />
+        
+        <div className="row">
+          <Banner title={this.state.banner[0].title} />
+          <Banner title={this.state.banner[1].title} />
+          <Banner title={this.state.banner[2].title} />
+          <Banner title={this.state.banner[3].title} />
+        </div>
+      </div>
+    )
+  }
+ 
 }
 
 export default App;
