@@ -1,0 +1,18 @@
+.Banner {
+    position: relative;
+    margin: 15px 0;
+}
+
+.Banner__hover-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /* display: none; */
+    background: rgba(65, 0, 253, .5);
+}
+
+.Banner__hover-container p {
+    color: #fff;
+}

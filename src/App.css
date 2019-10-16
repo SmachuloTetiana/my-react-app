@@ -20,3 +20,13 @@
 .App-link {
   color: #09d3ac;
 }
+
+.btn-delete {
+  color: #0096ff;
+  font-weight: 600;;
+}
+
+.checkbox-label {
+  color: #192135;
+  font-weight: 600;
+}
