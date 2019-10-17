@@ -37,25 +37,25 @@ class App extends Component {
         }
       ]
     }
-
-    this.checkedChanged = this.checkedChanged.bind(this);
-    this.deleteChecked = this.deleteChecked.bind(this);
   }
 
-  checkedChanged(event) {
+  checkedChanged = event => {
     const id = event.target.id;
-    this.setState(prevState => {    
+
+    this.setState(prevState => {  
       const images = prevState.images.map(item => (
-        item.id === +id ? {...item, checked: true } : item
+        item.id === +id ? {...item, checked: !item.checked } : item
       ))
+
       return {
-        counter: prevState.counter + 1,
+        counter: images.filter(item => item.checked).length,
         images
       }
+
     })
   }
 
-  deleteChecked() {
+  deleteChecked = () => {
     this.setState(prevState => {
       return {      
         counter: 0,  
@@ -64,22 +64,44 @@ class App extends Component {
     })
   }
 
+  handleAllChecked = (event) => {
+    let images = this.state.images;
+    images.forEach(item => item.checked = event.target.checked);
+
+    this.setState({
+      images,
+      counter: images.filter(item => item.checked).length
+    })
+  }
+
+  addActiveClass = () => {
+    let itemChecked = this.state.images.filter(item => item.checked).length > 0;
+    return itemChecked ? 'active' : '';
+  }
 
   render() {
     return (
-      <div className="container">
-        <Menu counter={this.state.counter} click={this.deleteChecked} />
+      <div className="container" style={{marginTop: '30px'}}>
+        <Menu 
+          counter={this.state.counter} 
+          click={this.deleteChecked} 
+          checked={this.handleAllChecked}
+          changed={this.checkedChanged} />
 
         <div className="row">
           {
             this.state.images.map(item => {
               return <Banner 
+                        className={this.addActiveClass()}
                         key={item.id} 
                         id={item.id}
                         src={item.src} 
-                        title={item.title} 
+                        title={item.title}   
+                        checked={item.checked}         
                         changed={this.checkedChanged}>
-                          hello
+                          <p>Sent by admin: <span>No</span></p>
+                          <p>Installed by user: <span>No</span></p>
+                          <p>Last edited: <span>03.04.2019 16:43</span></p>
                       </Banner>
             })
           }

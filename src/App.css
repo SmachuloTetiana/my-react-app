@@ -23,10 +23,33 @@
 
 .btn-delete {
   color: #0096ff;
-  font-weight: 600;;
 }
 
-.checkbox-label {
-  color: #192135;
-  font-weight: 600;
+.subtitle {
+  color: #575757;
+}
+
+.btn-primary {
+  background: #FFF;
+  color: #0096ff;
+  border-color: #0096ff;
+}
+
+.btn-primary:hover {
+  border-color: #0096ff;
+  background: #0096ff;
+}
+
+.Navigation .checkbox { 
+  margin: 0;
+  font-size: 16px;
+  padding-left: 30px;
+}
+
+.Navigation .checkmark {
+  border-color: #575757;
+}
+
+.Navigation .checkbox .checkmark:after  {  
+  border-color: #575757;
 }

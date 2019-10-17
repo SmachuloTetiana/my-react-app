@@ -1,15 +1,17 @@
 import React from 'react';
 
 const menu = props => {
-    const hidden = props.checked ? 'd-flex flex-row align-items-center' : 'd-flex flex-row align-items-center d-none';
-
     return(
-        <div className="d-flex flex-column">
-            <div className={hidden}>
-                <input
-                    type="checkbox"
-                    />
-                <label className="checkbox-label">Selected <span>({props.counter})</span></label>
+        <div className='d-flex flex-column Navigation'>
+            <div className={`${!props.counter ? 'd-none' : 'd-flex'} flex-row align-items-center`}>
+                <label className="checkbox">
+                    Selected ({props.counter})
+                    <input 
+                        type="checkbox"
+                        name="checkAll"
+                        onClick={props.checked}/>
+                    <span className="checkmark"></span>
+                </label>
                 <button 
                     type="button"
                     className="btn btn-delete"
@@ -19,10 +21,10 @@ const menu = props => {
                 </button>
             </div>
 
-            <div className="d-flex flex-row align-items-center">
-                <h2>Signature List</h2>
+            <div className={`${props.counter ? 'd-none' : 'd-flex'} flex-row align-items-center`}>
+                <h2 className="subtitle">Signature List</h2>
                 <button
-                    className="ml-auto"
+                    className="ml-auto btn btn-primary"
                     type="button"
                     onClick={() => window.open('https://www.google.com/')}>
                         Create a signature
