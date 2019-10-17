@@ -40,11 +40,11 @@ class App extends Component {
   }
 
   checkedChanged = event => {
-    const id = event.target.id;
+    const id = +event.target.id;
 
-    this.setState(prevState => {  
+    this.setState(prevState => {    
       const images = prevState.images.map(item => (
-        item.id === +id ? {...item, checked: !item.checked } : item
+        item.id === id ? {...item, checked: !item.checked } : item
       ))
 
       return {
