@@ -23,12 +23,11 @@ const menu = props => {
 
             <div className={`${props.counter ? 'd-none' : 'd-flex'} flex-row align-items-center`}>
                 <h2 className="subtitle">Signature List</h2>
-                <button
+                <a
                     className="ml-auto btn btn-primary"
-                    type="button"
-                    onClick={() => window.open('https://www.google.com/')}>
+                    href="https://www.google.com/">
                         Create a signature
-                </button>                
+                </a>                
             </div>
         </div>
     )

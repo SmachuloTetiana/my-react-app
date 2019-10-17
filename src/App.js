@@ -99,6 +99,7 @@ class App extends Component {
                         title={item.title}   
                         checked={item.checked}         
                         changed={this.checkedChanged}>
+                          <p>{item.title}</p>
                           <p>Sent by admin: <span>No</span></p>
                           <p>Installed by user: <span>No</span></p>
                           <p>Last edited: <span>03.04.2019 16:43</span></p>

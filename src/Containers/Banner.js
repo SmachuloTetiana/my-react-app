@@ -22,12 +22,11 @@ const banner = props => {
                     <div className="Banner-info-block">
                         {props.children}
                     </div>
-                    <button 
-                        type="button"
+                    <a 
                         className="btn btn-white"
-                        onClick={() => window.open('https://www.google.com/')}>
+                        href="https://www.google.com/">
                             Use
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
