@@ -3,7 +3,7 @@ import './Banner.css';
 
 const banner = props => {
     return (
-        <div className="col-4">
+        <div className="col-lg-4 col-md-6 col-12">
             <div className={`Banner ${props.className}`}>
                 <img 
                     src={props.src} 
