@@ -8,7 +8,8 @@ const banner = props => {
                 <img 
                     src={props.src} 
                     title={props.title} 
-                    className="img-fluid" />
+                    className="img-fluid"
+                    alt=""/>
                 <div className="Banner__hover-container">
                     <input 
                         type="checkbox"

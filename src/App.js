@@ -37,25 +37,24 @@ class App extends Component {
         }
       ]
     }
-
-    this.checkedChanged = this.checkedChanged.bind(this);
-    this.deleteChecked = this.deleteChecked.bind(this);
   }
 
-  checkedChanged(event) {
-    const id = event.target.id;
+  checkedChanged = event => {
+    const id = +event.target.id;
+
     this.setState(prevState => {    
       const images = prevState.images.map(item => (
-        item.id === +id ? {...item, checked: true } : item
+        item.id === id ? {...item, checked: !item.checked } : item
       ))
+
       return {
-        counter: prevState.counter + 1,
+        counter: images.filter(item => item.checked).length,
         images
       }
     })
   }
 
-  deleteChecked() {
+  deleteChecked = () => {
     this.setState(prevState => {
       return {      
         counter: 0,  
@@ -70,20 +69,21 @@ class App extends Component {
       <div className="container">
         <Menu counter={this.state.counter} click={this.deleteChecked} />
 
-        <div className="row">
-          {
-            this.state.images.map(item => {
-              return <Banner 
-                        key={item.id} 
-                        id={item.id}
-                        src={item.src} 
-                        title={item.title} 
-                        changed={this.checkedChanged}>
-                          hello
-                      </Banner>
-            })
-          }
-        </div>
+        <div className="row">          
+          <div className="col-4">
+            {
+              this.state.images.map(item => {
+                return <Banner 
+                          key={item.id} 
+                          id={item.id}
+                          src={item.src} 
+                          title={item.title} 
+                          changed={this.checkedChanged}>
+                            {item.title}
+                        </Banner>
+              })
+            }
+          </div>
       </div>
     )
   }

@@ -1,11 +1,9 @@
 import React from 'react';
 
 const menu = props => {
-    const hidden = props.checked ? 'd-flex flex-row align-items-center' : 'd-flex flex-row align-items-center d-none';
-
     return(
         <div className="d-flex flex-column">
-            <div className={hidden}>
+            <div hidden={!props.counter}>
                 <input
                     type="checkbox"
                     />
@@ -19,7 +17,7 @@ const menu = props => {
                 </button>
             </div>
 
-            <div className="d-flex flex-row align-items-center">
+            <div hidden={props.counter}>
                 <h2>Signature List</h2>
                 <button
                     className="ml-auto"
